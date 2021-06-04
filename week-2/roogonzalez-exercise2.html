@@ -25,7 +25,7 @@
    
     <div id="container">
         <h1>Exercise 2.2 - Hello JavaScript</h1>
-        <button id="btnMyCourse">What course am I taking?</button>
+        <button id="btnMyCourse" onclick="alert('WEB 231 - Enterprise JavaScript I')">What course am I taking?</button>
         <p id="txtMyWorld"></p>
         <a href="../index.html" class="return-home">Return Home</a>
     </div>    
@@ -40,12 +40,6 @@
           //variables  
             const btnMyCourse = document.getElementById("btnMyCourse");
             const txtMyWorld = document.getElementById("txtMyWorld");
-
-          
-          // JavaScript Code for pop-up window when clicking on button
-            btnMyCourse.addEventListener("click", () => {
-            alert("WEB 231 – Enterprise JavaScript I")
-            })
 
           // JavaScript Code for Student's World Paragraph tag
           let studentLastName = "Roo Gonzalez";
