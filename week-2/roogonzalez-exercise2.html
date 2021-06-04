@@ -17,7 +17,7 @@
        <!-- CSS styling and fonts-->
        
        <link rel="stylesheet" type="text/css" href="site.css">
-       <link rel="stylesheet" type="text/css" href="global.css">
+       <link rel="stylesheet" type="text/css" href="/web-231/global.css">
        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&family=Quattrocento:wght@400;700&display=swap" rel="stylesheet">   
 </head>
 
@@ -29,6 +29,29 @@
         <p id="txtMyWorld"></p>
         <a href="../index.html" class="return-home">Return Home</a>
     </div>    
+
+
+
+<!-- JavaScript code -->
+
+   
+   <script>  
+          
+          //variables  
+            const btnMyCourse = document.getElementById("btnMyCourse");
+            const txtMyWorld = document.getElementById("txtMyWorld");
+
+          
+          // JavaScript Code for pop-up window when clicking on button
+            btnMyCourse.addEventListener("click", () => {
+            alert("WEB 231 – Enterprise JavaScript I")
+            })
+
+          // JavaScript Code for Student's World Paragraph tag
+          let studentLastName = "Roo Gonzalez";
+          txtMyWorld.innerHTML="You are now in " + studentLastName + "'s world!";
+    
+    </script>
 
 </body>
 </html>
