@@ -2,8 +2,8 @@ ul {
     border: red 1px dotted;
 }
 
-#payroll-header h1{
+#payroll-header {
     margin:auto;
-    vertical-align:middle;
+    text-align: center;
 }
 
