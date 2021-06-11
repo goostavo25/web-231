@@ -1,0 +1,82 @@
+<!-- 
+==================================================
+; Title:  roogonzalez-temp-conversion.html
+; Author: Gustavo Roo Gonzalez
+; Date:   11 June 2021
+; Description: Assignment 3.2. Tool to convert
+;        temperature from Fahrenheit to Celsius
+;=================================================
+-->
+
+
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+   
+    <title>WEB 231 - Enterprise JavaScript I</title>
+
+       <!-- CSS styling and fonts-->
+       
+       <link rel="stylesheet" type="text/css" href="roogonzalez-temp-conversion.css">
+       <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&family=Quattrocento:wght@400;700&display=swap" rel="stylesheet">   
+
+</head>
+
+<body>
+   
+    <div id="container">
+
+        <!-- Page title-->
+        <h1 class="app-header">Welcome to the Temperature Conversion App!</h1>
+
+        <!-- Form to enter temperature -->
+        
+            <div class="card">
+                <p class="card-title">Fahrenheit to Celsius Converter</p>
+                <form>
+                    <label for="txtFahrenheit" id="txtFahrenheitTag">Fahrenheit value:</label>
+                    <input type="text" name="txtFahrenheit" id="txtFahrenheit">
+                    <br>
+                    <button type="button" id="buttonF">Convert Temperature</button>
+                </form>
+            </div>
+
+        <!-- Converted temperature/results -->
+
+        <div class="card">
+            <p class="card-title">Conversion Results</p>
+            <div id="result"></div>
+        </div>
+
+        <!--Return home link-->
+        <a href="../index.html" class="return-home">Return Home</a>
+   
+    </div>    
+
+
+
+        <!-- JavaScript code -->
+
+   
+    <script>
+
+      function cToF() {
+        
+      // Get Celsius value  
+      let fahrenheit = document.getElementById("txtFahrenheit").value;
+      
+      // Formula to calculate Fahrenheit value
+      document.getElementById("result").innerHTML = ((parseFloat(fahrenheit) - 32) / 1.8).toFixed(2); 
+      
+      // Code to clear form field
+      document.getElementById('txtFahrenheit').value = ""; 
+     }
+
+      // Result
+      document.getElementById('buttonF').onclick = cToF;
+
+    </script>
+
+</body>
+</html>
