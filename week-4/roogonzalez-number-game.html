@@ -1,0 +1,98 @@
+<!-- 
+==================================================
+; Title:  roogonzalez--number-game.html
+; Author: Gustavo Roo Gonzalez
+; Date:   
+; Description: Assignment 4.2. Number Guessing Game
+;                using If/Else Statements
+;=================================================
+-->
+
+
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+   
+    <title>WEB 231 - Enterprise JavaScript I</title>
+
+       <!-- CSS styling and fonts-->
+       
+       <link rel="stylesheet" type="text/css" href="roogonzalez-number-game.css">
+       <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&family=Quattrocento:wght@400;700&display=swap" rel="stylesheet">   
+
+</head>
+
+<body>
+   
+    <div id="container">
+
+        <!-- Page title-->
+        <h1 class="app-header">Welcome to the numbers game!</h1>
+
+        <!-- Form to play game -->
+        
+            <div class="card">
+                <p class="card-title">Pick a number between 1 and 10</p>
+                <form>
+                    <label id="form-field" for="txtMyNumber">Guess the number:</label>
+                    <input class="input" type="text" name="txtMyNumber" id="txtMyNumber">
+                    <br>
+                    <button onclick="game()" type="button" id="btnSubmit">Submit</button>
+                </form>
+            </div>
+
+        <!-- Game results section -->
+
+        <div class="card">
+            <p class="card-title">Game Results</p>
+            <div id="results"></div>
+        </div>
+
+        <!--Return home link-->
+       
+        <a href="../index.html" class="return-home">Return Home</a>
+   
+    </div>    
+
+
+
+        <!-- JavaScript code -->
+
+   
+    
+     <script type = "text/javascript">
+    
+      // Declare variable for results  
+        let results;
+                
+      // Generate random number from 1 - 10 and declare rdn constant
+        const rnd = Math.floor((Math.random() * 10) + 1);
+            
+      // Get random number
+        function game() {
+          
+            let myNumber = document.getElementById("txtMyNumber").value;
+                   
+                // Display if guessed number is less than the random number.
+                    if (myNumber > rnd) {
+                        results = "Try again, the number is less than " + myNumber
+                    }
+                    
+                // Display if guessed number is greater than the random number.
+                    else if (myNumber < rnd) {
+                        results = "Try again, the number is greater than " + myNumber
+                    }
+                
+                // Display if guessed number is correct
+                    else  
+                        results = "Congratulations! You picked the correct number!";
+                    document.getElementById("results").innerHTML = results
+                
+                }              
+     
+
+     </script>
+      
+</body>
+</html>
