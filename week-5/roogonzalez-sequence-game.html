@@ -1,0 +1,119 @@
+<!-- 
+==================================================
+; Title:  roogonzalez-sequence-game.html
+; Author: Gustavo Roo Gonzalez
+; Date:  27 June 2021
+; Description: Assignment 5.2. Sequence Game
+; 
+; References:
+; Select Tag: https://www.w3schools.com/tags/tag_select.asp
+; 
+;=================================================
+-->
+
+
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+   
+    <title>WEB 231 - Enterprise JavaScript I</title>
+
+       <!-- CSS styling and fonts-->
+       
+       <link rel="stylesheet" type="text/css" href="roogonzalez-sequence-game.css">
+       <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&family=Quattrocento:wght@400;700&display=swap" rel="stylesheet">   
+
+</head>
+
+<body>
+   
+    <div id="container">
+
+        <!-- Page title-->
+        <h1 class="app-header">Welcome to the sequence game!</h1>
+
+        <!-- Form to select sequence -->
+        
+            <div class="card">
+                <p class="card-title">Sequence Selection Form</p>
+                <form>
+                    <label id="form-field" for="sequence">Choose a number sequence:</label>
+                    <select class="drop-down-menu" id="sequence">
+                        <option value="select">--Select--</option>
+                        <option value="fibonacci">Fibonacci Sequence</option>
+                        <option value="even">Even Numbers</option>
+                        <option value="odd">Odd Numbers</option>
+                    </select>
+                    <br>
+                    <button  onclick="sequenceGame()" type="button" id="btnDisplaySequence">Display Sequence</button>
+                </form>
+            </div>
+
+        <!-- Sequence display section -->
+
+        <div class="card">
+            <p class="card-title">Sequence Results</p>
+            <div id="results"></div>
+        </div>
+
+        <!--Return home link-->
+       
+        <a href="../index.html" class="return-home">Return Home</a>
+   
+    </div>    
+
+
+        <!-- JavaScript code -->
+
+    
+     <script type = "text/javascript">
+    
+      function sequenceGame() {
+                    
+                    let choice = document.getElementById("sequence").value;
+                   
+                    // If 'Select' is chosen show alert.
+                    if (choice === "select") {          
+                    alert("Invalid selection, please try again!");
+                    }
+                   
+                    // If "Fibonacci" is chosen
+                    else if (choice === "fibonacci") {
+                        let num1 = 0;
+                        let num2 = 1;
+                        let next;
+                        let fibonacciSequenceText = "" + num1 + ", " + num2 + ", ";
+                        
+                        while(num1 + num2 < 40) {
+                            next = num1 + num2;
+                            num1 = num2;
+                            num2 = next;
+                            fibonacciSequenceText += num2 + ", ";
+                        }document.getElementById("results").innerHTML = fibonacciSequenceText.slice(0, -2);
+                   
+                    //If "Even Numbers" is chosen
+                    }else if (choice === "even") {
+                        let num1 = 2;
+                        let evenText = num1 + ", ";
+                        do
+                        {                            
+                            num1 = num1 + 2;
+                            evenText += num1 + ", ";
+                        }while(num1 < 20)
+                        document.getElementById("results").innerHTML = evenText.slice(0, -2);
+                    
+                    //If choice is "Odd Numbers"
+                    }else {                        
+                        let oddText = ""; 
+                        for (let num1 = 1; num1 < 20; num1 += 2) {
+                            oddText += num1 + ", ";
+                        }
+                        document.getElementById("results").innerHTML = oddText.slice(0, -2);                    
+                    }
+                } 
+
+     </script>
+      
+</body>
+</html>
