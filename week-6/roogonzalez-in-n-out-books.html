@@ -1,0 +1,212 @@
+<!-- 
+==================================================
+; Title:  roogonzalez-in-n-out-books.html
+; Author: Gustavo Roo Gonzalez
+; Date:  04 JUL 2021
+; Description: Assignment 6.2. In-N-Out Books
+; 
+; References:
+; JS Objects: https://www.w3schools.com/js/js_objects.asp
+; 
+;=================================================
+-->
+
+
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+   
+    <title>WEB 231 - Enterprise JavaScript I</title>
+
+       <!-- CSS styling and fonts-->
+       
+       <link rel="stylesheet" type="text/css" href="roogonzalez-in-n-out-books.css">
+       <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&family=Quattrocento:wght@400;700&display=swap" rel="stylesheet">   
+
+</head>
+
+<body>
+   
+    <div id="container">
+
+        <!-- Page title-->
+       
+        <h1 class="app-header">Welcome to In-N-Out Books</h1>
+
+        <!-- Form to select Listing -->
+        
+            <div class="card">
+                <p class="card-title">My Favorites</p>
+                <form>
+                    <label id="form-field">Choose a listing:</label>
+                    <select class="drop-down-menu" id="favoriteList">
+                        <option value="select">--Select--</option>
+                        <option value="books">Top 3 Favorite Books</option>
+                        <option value="authors">Top 3 Favorite Authors</option>
+                    </select>
+                    <br>
+                    <div class="text-center">
+                    <button  onclick="displayTable()" type="button" id="btnDisplaylisting" class="btn" >Display Listing</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Listing display section -->
+
+        
+            <!-- Table for Books-->
+            <div class="card" id="favorite-books">
+                <div class="card-title">Top 3 Favorite Books</div>
+                <div class="card-content" id="books">
+                    <table>
+                        <tr>
+                          <th>ISBN</th>
+                          <th>Book Title</th>
+                          <th>Pages</th>
+                        </tr>
+                        <tr>
+                          <td id = "txtISBN1"></td>
+                          <td id = "txtTitle1"></td>
+                          <td id = "txtPages1"></td>
+                        </tr>
+                        <tr>
+                          <td id = "txtISBN2"></td>
+                          <td id = "txtTitle2"></td>
+                          <td id = "txtPages2"></td>
+                        </tr>
+                        <tr>
+                          <td id = "txtISBN3"></td>
+                          <td id = "txtTitle3"></td>
+                          <td id = "txtPages3"></td>
+                        </tr>                        
+                      </table>                        
+                </div>
+            </div>
+            
+            <!--Table for Authors-->
+           
+            <div class="card" id="favorite-authors">
+                <div class="card-title">Top 3 Favorite Authors</div>
+                <div class="card-content" id="authors">
+                    <table>
+                        <tr>
+                          <th>Name</th>
+                          <th>Genre</th>
+                        </tr>
+                        <tr>
+                          <td id = "txtAUTHOR1"></td>
+                          <td id = "txtGENRE1"></td>
+                        </tr>
+                        <tr>
+                          <td id = "txtAUTHOR2"></td>
+                          <td id = "txtGENRE2"></td>
+                        </tr>
+                        <tr>
+                          <td id = "txtAUTHOR3"></td>
+                          <td id = "txtGENRE3"></td>
+                        </tr>                        
+                    </table>                        
+                </div>
+            </div>               
+
+        <!--Return home link-->
+       
+        <a href="../index.html" class="return-home">Return Home</a>
+   
+    </div>    
+
+
+        <!-- JavaScript code -->
+
+    
+     <script type = "text/javascript">
+    
+               // Declaring variables               
+                
+               // BOOKS INFO
+     
+                let favorite1 = {
+                   "isbn": "9780152438203",
+                   "title": "The Little Prince",
+                   "pages": "96"
+                  }
+
+                let favorite2 = {
+                   "isbn": "9780345538987",
+                   "title": "Jurassic Park",
+                   "pages": "448"
+                  }
+
+                let favorite3 = {
+                   "isbn": "9780385490818",
+                   "title": "The Handmaid's Tale",
+                   "pages": "350"
+                  }
+
+               
+               // AUTHORS INFO
+
+                let favoriteAuthor1 = {"name": "Antoine de Saint-Exupéry", "genre": "Fantasy"}
+                let favoriteAuthor2 = {"name": "Michael Crichton", "genre": "Science Fiction"}
+                let favoriteAuthor3 = {"name": "Margaret Atwood", "genre": "Novel"}
+
+               // Favorite Books / Favorite Authors
+
+                let books = document.getElementById("favorite-books");
+                let authors = document.getElementById("favorite-authors");
+               
+               // Data used in tables.
+               
+               document.getElementById("txtISBN1").innerHTML = favorite1.isbn;
+               document.getElementById("txtTitle1").innerHTML = favorite1.title;
+               document.getElementById("txtPages1").innerHTML = favorite1.pages;
+
+               document.getElementById("txtISBN2").innerHTML = favorite2.isbn;
+               document.getElementById("txtTitle2").innerHTML = favorite2.title;
+               document.getElementById("txtPages2").innerHTML = favorite2.pages;
+
+               document.getElementById("txtISBN3").innerHTML = favorite3.isbn;
+               document.getElementById("txtTitle3").innerHTML = favorite3.title;
+               document.getElementById("txtPages3").innerHTML = favorite3.pages;
+
+               document.getElementById("txtAUTHOR1").innerHTML = favoriteAuthor1.name;
+               document.getElementById("txtGENRE1").innerHTML = favoriteAuthor1.genre;
+
+               document.getElementById("txtAUTHOR2").innerHTML = favoriteAuthor2.name;
+               document.getElementById("txtGENRE2").innerHTML = favoriteAuthor2.genre;
+
+               document.getElementById("txtAUTHOR3").innerHTML = favoriteAuthor3.name;
+               document.getElementById("txtGENRE3").innerHTML = favoriteAuthor3.genre;
+
+               // Clear info  
+               
+               books.style.display = "none";
+               authors.style.display = "none";
+               
+               // Function to display tables
+               
+               function displayTable() {
+                    let choice = document.getElementById("favoriteList").value;
+                    
+                    if (choice == "books") {
+                        authors.style.display = "none";
+                        books.style.display = "block";
+                   
+                    }else if (choice == "authors") {
+                        books.style.display = "none";
+                        authors.style.display = "block";
+
+                    }
+                    else {
+                        authors.style.display = "none";
+                        books.style.display = "none";
+                    }
+                    
+               }
+
+
+     </script>
+      
+</body>
+</html>
