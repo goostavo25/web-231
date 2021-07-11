@@ -1,0 +1,367 @@
+<!-- 
+==================================================
+; Title:  roogonzalez-javazon.html
+; Author: Gustavo Roo Gonzalez
+; Date:  10 JUL 2021
+; Description: Assignment 7.2. Javazon App
+; 
+; References:
+; JS Classes: https://www.w3schools.com/js/js_classes.asp
+; JS Switch: https://www.w3schools.com/js/js_switch.asp
+; 
+;=================================================
+-->
+
+
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB 231 - Enterprise JavaScript I</title>
+
+       <!-- CSS styling and fonts-->
+       
+       <link rel="stylesheet" type="text/css" href="roogonzalez-javazon.css">
+       <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&family=Quattrocento:wght@400;700&display=swap" rel="stylesheet">   
+
+</head>
+
+<body>
+   
+    <div id="container">
+
+        <!-- Page title-->
+       
+        <h1 class="app-header">Welcome to Javazon App!</h1>
+
+        <!-- Form to select Listing -->
+        
+            <div class="card">
+                <p class="card-title">Javazon Selection Form</p>
+                <form>
+                    <label id="form-field">Choose a listing:</label>
+                    <select class="drop-down-menu" id="listing">
+                        <option value="select">--Select--</option>
+                        <option value="products">Products</option>
+                        <option value="services">Services</option>
+                        <option value="employees">Employees</option>
+                    </select>
+                    <br>
+                    <div class="text-center">
+                    <button  onclick="javazonSelection()" type="button" id="btnDisplaylisting" class="btn" >Display Listing</button>
+                    </div>
+                </form>
+            </div>
+
+        <!-- Listing display section -->
+
+
+            <!-- Table for Products-->
+            <div class="card" id="productsTable">
+                <div class="card-title">Javazon Products</div>
+                <div class="card-content">
+                    <table>
+                        <tr>
+                            <th>Product ID</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total Value</th>
+                        </tr>
+                        <tr>
+                            <td id="htmlId"></td>
+                            <td id="htmlDescription"></td>
+                            <td id="htmlPrice"></td>
+                            <td id="htmlQuantity"></td>
+                            <td id="htmlTotalValue"></td>
+                        </tr>
+                        <tr>
+                            <td id="jsDefId"></td>
+                            <td id="jsDefDescription"></td>
+                            <td id="jsDefPrice"></td>
+                            <td id="jsDefQuantity"></td>
+                            <td id="jsDefTotalValue"></td>
+                        </tr>
+                        <tr>
+                            <td id="jsDesId"></td>
+                            <td id="jsDesDescription"></td>
+                            <td id="jsDesPrice"></td>
+                            <td id="jsDesQuantity"></td>
+                            <td id="jsDesTotalValue"></td>
+                        </tr>
+                        <tr>
+                            <td id="expressId"></td>
+                            <td id="expressDescription"></td>
+                            <td id="expressPrice"></td>
+                            <td id="expressQuantity"></td>
+                            <td id="expressTotalValue"></td>
+                        </tr>
+                        <tr>
+                            <td id="mongoId"></td>
+                            <td id="mongoDescription"></td>
+                            <td id="mongoPrice"></td>
+                            <td id="mongoQuantity"></td>
+                            <td id="mongoTotalValue"></td>
+                        </tr>
+                    </table>                    
+                </div>
+            </div>
+            
+            <!--Table for Services-->
+            <div class="card" id="servicesTable">
+                <div class="card-title">Javazon Services</div>
+                <div class="card-content">
+                    <table>
+                        <tr>
+                            <th>Service ID</th>
+                            <th>Description</th>
+                            <th>Hourly Rate</th>
+                            <th>Minimum Billable Hours</th>
+                        </tr>
+                        <tr>
+                            <td id="webDesId"></td>
+                            <td id="webDesDescription"></td>
+                            <td id="webDesHourly"></td>
+                            <td id="webDesBilling"></td>
+                        </tr>
+                        <tr>
+                            <td id="devOpsId"></td>
+                            <td id="devOpsDescription"></td>
+                            <td id="devOpsHourly"></td>
+                            <td id="devOpsBilling"></td>
+                        </tr>
+                        <tr>
+                            <td id="dataBaseId"></td>
+                            <td id="dataBaseDescription"></td>
+                            <td id="dataBaseHourly"></td>
+                            <td id="dataBaseBilling"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+                      
+            <!--Table for Employees-->
+            <div class="card" id="employeesTable">
+                <div class="card-title">Javazon Employees</div>
+                <div class="card-content">
+                    <table>
+                        <tr>
+                            <th>Employee ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Salary</th>
+                        </tr>
+                        <tr>
+                            <td id="beethovenId"></td>
+                            <td id="beethovenLname"></td>
+                            <td id="beethovenFname"></td>
+                            <td id="beethovenSalary"></td>
+                        </tr>
+                        <tr>
+                            <td id="bachId"></td>
+                            <td id="bachLname"></td>
+                            <td id="bachFname"></td>
+                            <td id="bachSalary"></td>
+                        </tr>
+                        <tr>
+                            <td id="mozartId"></td>
+                            <td id="mozartLname"></td>
+                            <td id="mozartFname"></td>
+                            <td id="mozartSalary"></td>
+                        </tr>
+                        <tr>
+                            <td id="brahmsId"></td>
+                            <td id="brahmsLname"></td>
+                            <td id="brahmsFname"></td>
+                            <td id="brahmsSalary"></td>
+                        </tr>
+                        <tr>
+                            <td id="haydnId"></td>
+                            <td id="haydnLname"></td>
+                            <td id="haydnFname"></td>
+                            <td id="haydnSalary"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>        
+        
+        <!--Return home link-->
+       
+        <a href="../index.html" class="return-home">Return Home</a>
+   
+    </div>    
+
+
+        <!-- JavaScript code -->
+
+    
+        <script>
+
+            //Defining products, services, and employees variables
+            let products = document.getElementById("productsTable");
+            document.getElementById("productsTable").style.display = "none";
+
+            let services = document.getElementById("servicesTable");
+            document.getElementById("servicesTable").style.display = "none";
+
+            let employees = document.getElementById("employeesTable");
+            document.getElementById("employeesTable").style.display = "none";
+
+            //Function to display listing 
+            function javazonSelection () {
+                let choice = document.getElementById("listing").value;
+                
+            //Switch statement to display listings
+                switch (choice) {
+                    case "products":
+                        products.style.display = "block";
+                        services.style.display = "none";
+                        employees.style.display = "none";
+                        break;
+                    case "services":
+                        products.style.display = "none";
+                        services.style.display = "block";
+                        employees.style.display = "none";
+                        break;
+                    case "employees":
+                        products.style.display = "none";
+                        services.style.display = "none";
+                        employees.style.display = "block";
+                        break;
+                    default:
+                        products.style.display = "none";
+                        services.style.display = "none";
+                        employees.style.display = "none";
+                }
+             
+                //Defining class for Products
+                class Products {
+                    constructor (id, description, price, quantity) {
+                        this.id = id;
+                        this.description = description;
+                        this.price = price.toFixed(2);
+                        this.quantity = quantity;
+                    }
+                    get totalValue() {
+                        return (this.quantity * this.price).toFixed(2)
+                    }
+                }
+                
+                //Defining class for Services
+                class Services {
+                    constructor (id, description, hourlyRate, min) {
+                        this.id = id;
+                        this.description = description;
+                        this.hourlyRate = hourlyRate.toFixed(2);
+                        this.min = min;
+                    }
+                }
+                
+                //Defining class for Employees
+                class Employees {
+                    constructor (id, firstName, lastName, salary) {
+                        this.id = id;
+                        this.firstName = firstName;
+                        this.lastName = lastName;
+                        this.salary = salary.toFixed(2)
+                    }
+                }
+                
+                //Defining variables for tables
+
+                    //Variables for Products
+
+                const htmlProduct = new Products('9781118008188', 'HTML & CSS: Design and Build Websites', 22.26, 10);
+                document.getElementById("htmlId").innerHTML = htmlProduct.id;
+                document.getElementById("htmlDescription").innerHTML = htmlProduct.description;
+                document.getElementById("htmlPrice").innerHTML = htmlProduct.price;
+                document.getElementById("htmlQuantity").innerHTML = htmlProduct.quantity;
+                document.getElementById("htmlTotalValue").innerHTML = htmlProduct.totalValue;
+                
+                const javaScriptDefinitiveProduct = new Products('9781491952023', 'JavaScript: The Definitive Guide 7/E', 41.33, 7);
+                document.getElementById("jsDefId").innerHTML = javaScriptDefinitiveProduct.id;
+                document.getElementById("jsDefDescription").innerHTML = javaScriptDefinitiveProduct.description;
+                document.getElementById("jsDefPrice").innerHTML = javaScriptDefinitiveProduct.price;
+                document.getElementById("jsDefQuantity").innerHTML = javaScriptDefinitiveProduct.quantity;
+                document.getElementById("jsDefTotalValue").innerHTML = javaScriptDefinitiveProduct.totalValue;
+                
+                const javaScriptDesignProduct = new Products('9781449331818', 'Learning JavaScript Design Patterns 1/E', 25.99, 3);
+                document.getElementById("jsDesId").innerHTML = javaScriptDesignProduct.id;
+                document.getElementById("jsDesDescription").innerHTML = javaScriptDesignProduct.description;
+                document.getElementById("jsDesPrice").innerHTML = javaScriptDesignProduct.price;
+                document.getElementById("jsDesQuantity").innerHTML = javaScriptDesignProduct.quantity;
+                document.getElementById("jsDesTotalValue").innerHTML = javaScriptDesignProduct.totalValue;
+                
+                const expressProduct = new Products('9781617292422', 'Express in Action: Writing, building, and testing Node.js applications 1/E', 34.91, 3);
+                document.getElementById("expressId").innerHTML = expressProduct.id;
+                document.getElementById("expressDescription").innerHTML = expressProduct.description;
+                document.getElementById("expressPrice").innerHTML = expressProduct.price;
+                document.getElementById("expressQuantity").innerHTML = expressProduct.quantity;
+                document.getElementById("expressTotalValue").innerHTML = expressProduct.totalValue;
+                
+                const mongoProduct = new Products('9781491954461', 'MongoDB The Definitive Guide', 33.70, 8);
+                document.getElementById("mongoId").innerHTML = mongoProduct.id;
+                document.getElementById("mongoDescription").innerHTML = mongoProduct.description;
+                document.getElementById("mongoPrice").innerHTML = mongoProduct.price;
+                document.getElementById("mongoQuantity").innerHTML = mongoProduct.quantity;
+                document.getElementById("mongoTotalValue").innerHTML = mongoProduct.totalValue;
+                
+                    //Variables for Services
+
+                const webDesignService = new Services(100, 'Website Design', 150, 25);
+                document.getElementById("webDesId").innerHTML = webDesignService.id;
+                document.getElementById("webDesDescription").innerHTML = webDesignService.description;
+                document.getElementById("webDesHourly").innerHTML = webDesignService.hourlyRate;
+                document.getElementById("webDesBilling").innerHTML = webDesignService.min;
+                
+                const devOpsService = new Services(101, 'DevOps Consulting', 125, 50);
+                document.getElementById("devOpsId").innerHTML = devOpsService.id;
+                document.getElementById("devOpsDescription").innerHTML = devOpsService.description;
+                document.getElementById("devOpsHourly").innerHTML = devOpsService.hourlyRate;
+                document.getElementById("devOpsBilling").innerHTML = devOpsService.min;
+                
+                const dataBaseService = new Services(102, 'DataBase Design', 125, 15);
+                document.getElementById("dataBaseId").innerHTML = dataBaseService.id;
+                document.getElementById("dataBaseDescription").innerHTML = dataBaseService.description;
+                document.getElementById("dataBaseHourly").innerHTML = dataBaseService.hourlyRate;
+                document.getElementById("dataBaseBilling").innerHTML = dataBaseService.min;
+                
+                    //Variables for Employees
+
+                const beethovenEmployee = new Employees(1007, 'Beethoven', 'Ludwig', 13.99);
+                document.getElementById("beethovenId").innerHTML = beethovenEmployee.id;
+                document.getElementById("beethovenLname").innerHTML = beethovenEmployee.lastName;
+                document.getElementById("beethovenFname").innerHTML = beethovenEmployee.firstName;
+                document.getElementById("beethovenSalary").innerHTML = beethovenEmployee.salary;
+                
+                const bachEmployee = new Employees(1008, 'Bach', 'Johann', 22.30);
+                document.getElementById("bachId").innerHTML = bachEmployee.id;
+                document.getElementById("bachLname").innerHTML = bachEmployee.lastName;
+                document.getElementById("bachFname").innerHTML = bachEmployee.firstName;
+                document.getElementById("bachSalary").innerHTML = bachEmployee.salary;
+                
+                const mozartEmployee = new Employees(1009, 'Mozart', 'Wolfgang', 19.50);
+                document.getElementById("mozartId").innerHTML = mozartEmployee.id;
+                document.getElementById("mozartLname").innerHTML = mozartEmployee.lastName;
+                document.getElementById("mozartFname").innerHTML = mozartEmployee.firstName;
+                document.getElementById("mozartSalary").innerHTML = mozartEmployee.salary;
+                
+                const brahmsEmployee = new Employees(1010, 'Brahms', 'Johannes', 12.00);
+                document.getElementById("brahmsId").innerHTML = brahmsEmployee.id;
+                document.getElementById("brahmsLname").innerHTML = brahmsEmployee.lastName;
+                document.getElementById("brahmsFname").innerHTML = brahmsEmployee.firstName;
+                document.getElementById("brahmsSalary").innerHTML = brahmsEmployee.salary;
+                
+                const haydnEmployee = new Employees(1011, 'Haydn', 'Joseph', 32.50);
+                document.getElementById("haydnId").innerHTML = haydnEmployee.id;
+                document.getElementById("haydnLname").innerHTML = haydnEmployee.lastName;
+                document.getElementById("haydnFname").innerHTML = haydnEmployee.firstName;
+                document.getElementById("haydnSalary").innerHTML = haydnEmployee.salary;
+            }
+        </script>
+      
+</body>
+</html>
