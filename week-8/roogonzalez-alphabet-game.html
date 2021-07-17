@@ -1,0 +1,122 @@
+<!-- 
+=====================================================================
+; Title:  roogonzalez-alphabet-game.html
+; Author: Gustavo Roo Gonzalez
+; Date:  17 July 2021
+; Description: Assignment 8.2 Alphabet Game
+;
+; References:
+; Sup Tag: https://www.w3schools.com/tags/tag_sup.asp
+; For/In Statement: https://www.w3schools.com/jsref/jsref_forin.asp
+; Arrays: https://www.w3schools.com/js/js_arrays.asp
+;====================================================================
+-->
+
+
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB 231 - Enterprise JavaScript I</title>
+
+       <!-- CSS styling and fonts-->
+       
+       <link rel="stylesheet" type="text/css" href="roogonzalez-alphabet-game.css">
+       <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&family=Quattrocento:wght@400;700&display=swap" rel="stylesheet">   
+
+</head>
+
+<body>
+   
+    <div id="container">
+
+        <!-- Page title-->
+        
+           <h1 class="app-header">Welcome to the Alphabet game!</h1>
+
+        <!-- Form to play Alphabet game -->
+        
+            <div class="card" class="text-center">
+                <p class="card-title">Alphabet Letter Position</p>
+                <form>
+                    <label id="form-field" for="txtPosition">Find Letter N<sup>o</sup>:</label>
+                    <input class="input" type="text" name="txtPosition" id="txtPosition">
+                    <br>
+                    <button onclick="getLetter()" type="button" id="btnFindLetter">Submit</button>
+                </form>
+            </div>
+
+        <!-- Display letters -->
+        
+            <div class="card" id="letters">
+                <div class="card-title">Letters in the Alphabet</div>
+                <div class="card-content" id="alphabet"></div>
+            </div>
+
+        <!-- Game results section -->
+
+            <div class="card">
+                <p class="card-title">Game Results</p>
+                <div id="alphabet-letter"></div>
+            </div>
+
+        <!--Return home link-->
+       
+            <a href="../index.html" class="return-home">Return Home</a>
+   
+    </div>    
+
+
+        <!-- JavaScript code -->
+
+        <script type = "text/javascript">
+    
+            // Array of letters
+                let alphabet = [
+                "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", 
+                "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+                ];
+            
+            // Defining variable alphabetOutput.
+            let alphabetOutput = "";
+            
+            // For/in loop to iterate over the "alphabet" array and build string of letters.
+            for(letter in alphabet) {
+                alphabetOutput += alphabet[letter] + ", ";
+            }
+            
+            // Output the "alphabetOutput" string to the "alphabet" area
+            document.getElementById("alphabet").innerHTML = alphabetOutput.slice(0, -2);
+            function getLetter() {
+                
+            // Capture input letter.
+            let pos = document.getElementById("txtPosition").value;
+                
+            // Attempt to find letter based upon array 
+            let letter = alphabet[pos - 1];
+            
+            // Conditional for improper input
+            if (letter != undefined) {
+                    
+            // Output letter 
+            return document.getElementById("alphabet-letter").innerHTML =
+            "Letter " + letter + " is at position " + pos + " in the alphabet";                                        
+            } else if (pos == "") {
+            return document.getElementById("alphabet-letter").innerHTML = 
+            "Please enter a number";
+            } else {
+            
+            // Error message if invalid number is entered
+            return document.getElementById("alphabet-letter").innerHTML =
+            "There are not " + pos + " letters in the alphabet";                     
+                
+                }
+            } 
+
+        </script>
+      
+</body>
+</html>
