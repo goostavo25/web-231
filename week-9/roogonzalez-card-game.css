@@ -1,0 +1,112 @@
+#container{
+    margin: auto;
+    font-family: 'Oswald', sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-header{
+    font-family: 'Oswald', sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    background-color: #3C275A;
+    color: white;
+    border: 1px solid #D6A800;
+    padding: 10px;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 20px;
+    margin-bottom: 35px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba( 0, 0, 0, 0.25);  
+    transition: 0.3s; 
+}
+
+.card:hover{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 21px;
+    margin-bottom: 40px;
+    border-radius: 5px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-title{
+    margin: auto;
+    text-align: center;
+    color: #453674;   
+}
+
+.card-content {
+    padding: 2px 16px;
+    text-align: center
+}
+
+#results{ 
+    text-align: center;
+}
+
+
+#btnDealCards {
+    width: 35%;
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #453674;
+    color: white;
+    border-radius: 5px;
+}
+
+#btnDealCards:hover{
+    width: 35%;
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #D6A800;
+    color: white;
+    border-radius: 5px;
+}
+
+.return-home{
+    color: #4F3674;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 8px;
+    border-radius: 5px;
+    border-style:solid;
+    border-color: #453674;
+}
+
+.return-home:hover{
+    background-color: #D6A800;
+}
+
+.return-home:visited{
+    color: #3C275A;
+}
+
+.text-center {
+    text-align: center!important;
+}
+
+.player-cards {
+    text-align: left;
+}
+
+#player-cards {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 10px;
+    grid-gap: 10px 10px;
+}
+.card {
+    margin-right: auto;
+    margin-left: auto;
+}
